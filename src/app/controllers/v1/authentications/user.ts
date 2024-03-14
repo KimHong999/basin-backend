@@ -13,7 +13,7 @@ export const login = async (req: Request, res: Response) => {
   try {
     const account = (await User.query()
       .whereRaw("LOWER(email) = ?", email.toLowerCase())
-      .withGraphFetched('subscribe')
+      .withGraphFetched("subscribe")
       .first()) as any;
     if (!account) {
       return res.status(400).json({
@@ -43,7 +43,6 @@ export const login = async (req: Request, res: Response) => {
       message: error,
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).json({ message: "Internal Server Error" });
   }
 };
@@ -134,7 +133,6 @@ export const register = async (req: Request, res: Response) => {
       });
     }
   } catch (error) {
-    console.log(error);
     return res.status(400).json({ message: "Internal Server Error" });
   }
 };
@@ -158,7 +156,6 @@ export const destroy = async (req: Request, res: Response) => {
       message: "User has been deleted !",
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).json({ message: "Internal Server Error" });
   }
 };

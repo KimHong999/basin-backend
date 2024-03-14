@@ -44,8 +44,8 @@ export default (app: Express) => {
   app.get("/", (_req: Request, res: Response) => {
     res.status(200).json({ message: `Knock Knock, I'm home` });
   });
-  app.use("/v1", routes);
-  app.use("/v1/admins", adminRoutes);
+  app.use("/api/v1", routes);
+  app.use("/api/v1/admins", adminRoutes);
   app.use((req: Request, res: Response) => {
     return res.status(404).json({ message: `Route ${req.url} Not found.` });
   });
@@ -54,7 +54,6 @@ export default (app: Express) => {
     if (err instanceof MulterFileExtension) {
       return res.status(400).json(err.message);
     }
-    console.log(err);
     return res.status(500).json({ message: err.message });
   });
 };

@@ -13,7 +13,6 @@ export const profile = async (req: Request, res: Response) => {
       data: userSerializer(req.currentUser),
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).json({ error: "Internal Server Error" });
   }
 };
@@ -38,7 +37,6 @@ export const update = async (req: Request, res: Response) => {
 
     res.status(200).json({ data: userSerializer(user) });
   } catch (error) {
-    console.log({ error });
     return res.status(400).json({ error: "Internal Server Error" });
   }
 };
@@ -64,7 +62,6 @@ export const changePassword = async (req: Request, res: Response) => {
       message: "You have successfully update your password",
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).json({ message: req.__("flash.internal_error") });
   }
 };

@@ -7,6 +7,6 @@ export const profile = async (req: Request, res: Response) => {
       data: profileSerializer(req.currentUser),
     });
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "Internal Server Error" });
   }
 };

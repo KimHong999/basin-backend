@@ -57,7 +57,6 @@ export const listPrivileges = async (req: Request, res: Response) => {
       data: privileges.map(privilegeListSerializer),
     });
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: "Internal Server Error" });
   }
 };
@@ -132,7 +131,6 @@ export const update = async (req: Request, res: Response) => {
       message: "Role has been successfully updated.",
     });
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: "Internal Server Error" });
   }
 };

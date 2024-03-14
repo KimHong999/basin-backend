@@ -30,7 +30,6 @@ export const forgetPassword = async (req: any, res: any) => {
       message: "Reset password link has been sent to your email",
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).json({ message: "Internal Server Error" });
   }
 };
@@ -56,7 +55,6 @@ export const resetPassword = async (req: any, res: any) => {
       message: "Password has been reset",
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).json({ message: "Internal Server Error" });
   }
 };
