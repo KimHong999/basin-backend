@@ -1,16 +1,11 @@
 import { getImage } from "~/app/helper/image";
 import { pick } from "~/app/helper/utils";
-import { subscriptionSerializer } from "./subscriptions";
 
 export const userSerializer = (user: any) => {
   user.profile = getImage(user.profile);
   user.cover = getImage(user.cover);
   if (user.wallet) {
     user.wallet = user.wallet.balance;
-  }
-
-  if (user.subscribe) {
-    user.subscribe = subscriptionSerializer(user.subscribe)
   }
 
   return pick(user, [
@@ -29,7 +24,7 @@ export const userSerializer = (user: any) => {
     "cover",
     "dob",
     "username",
-    "subscribe"
+    "subscribe",
   ]);
 };
 
