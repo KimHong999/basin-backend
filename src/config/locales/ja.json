@@ -1,0 +1,15 @@
+{
+	"flash": {
+		"internalError": "Oop, something went wrong.",
+		"unauthorized": "You are not authorize to perform this action",
+		"accountSuspended": "Your account is suspended!",
+		"notFound": "Record not found",
+		"createSuccess": "You have successfully create the record",
+		"destroySuccess": "You have successfully delete the record",
+		"updateSuccess": "You have successfully update the record",
+		"sortSuccess": "You have successfully sort the record",
+		"invalidNumber": "Invalid request params",
+		"storeMissConfig": "Oop, sorry. something went wrong with your account. Please contact our support",
+		"invalidOptionType": "Oop, sorry, something went wrong with option type"
+	}
+}

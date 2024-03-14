@@ -1,0 +1,19 @@
+{
+  "apps": [{
+    "name": "shake-webservice",
+    "next_gen_js": true,
+    "cwd": "/var/www/shake-webservice/current",
+    "script": "yarn start",
+    "args": [],
+    "watch": false,
+    "log_date_format"  : "YYYY/MM/DD HH:mm Z",
+    "interpreter_args": ["--presets", "es2015"],
+    "max_memory_restart": "512M",
+    "autorestart": true,
+    "merge_logs": true,
+    "env": {
+      "NODE_ENV": "production",
+      "PORT": 8000
+    }
+  }]
+}
