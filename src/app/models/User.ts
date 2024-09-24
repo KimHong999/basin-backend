@@ -10,67 +10,67 @@ class User extends Model {
   name!: string;
   profile!: string;
 
-  static relationMappings = {
-    reviews: {
-      relation: Model.HasManyRelation,
-      modelClass: __dirname + "/Review",
-      join: {
-        from: "users.id",
-        to: "reviews.user_id",
-      },
-    },
-    followings: {
-      relation: Model.HasManyRelation,
-      modelClass: __dirname + "/Friends",
-      join: {
-        from: "users.id",
-        to: "friends.follower_id",
-      },
-    },
-    followers: {
-      relation: Model.BelongsToOneRelation,
-      modelClass: __dirname + "/User",
-      join: {
-        from: "users.id",
-        to: "friends.following_id",
-      },
-    },
-    campaigns: {
-      relation: Model.HasManyRelation,
-      modelClass: __dirname + "/Campaign",
-      join: {
-        from: "users.id",
-        to: "campaigns.user_id",
-      },
-    },
-    posts: {
-      relation: Model.HasManyRelation,
-      modelClass: __dirname + "/Post",
-      join: {
-        from: "users.id",
-        to: "posts.user_id",
-      },
-    },
-    subscribes: {
-      relation: Model.HasManyRelation,
-      modelClass: __dirname + "/Subscription",
-      join: {
-        from: "users.id",
-        to: "subscriptions.user_id"
-      }
-    },
-    subscribe: {
-      relation: Model.HasOneRelation,
-      modelClass: __dirname + "/Subscription",
-      join: {
-        from: "users.id",
-        to: "subscriptions.user_id"
-      },
-      filter(builder: any) {
-        builder.where("subscriptions.ended_at", ">", "now()").first()
-      },
-    }
-  };
+  // static relationMappings = {
+  //   reviews: {
+  //     relation: Model.HasManyRelation,
+  //     modelClass: __dirname + "/Review",
+  //     join: {
+  //       from: "users.id",
+  //       to: "reviews.user_id",
+  //     },
+  //   },
+  //   followings: {
+  //     relation: Model.HasManyRelation,
+  //     modelClass: __dirname + "/Friends",
+  //     join: {
+  //       from: "users.id",
+  //       to: "friends.follower_id",
+  //     },
+  //   },
+  //   followers: {
+  //     relation: Model.BelongsToOneRelation,
+  //     modelClass: __dirname + "/User",
+  //     join: {
+  //       from: "users.id",
+  //       to: "friends.following_id",
+  //     },
+  //   },
+  //   campaigns: {
+  //     relation: Model.HasManyRelation,
+  //     modelClass: __dirname + "/Campaign",
+  //     join: {
+  //       from: "users.id",
+  //       to: "campaigns.user_id",
+  //     },
+  //   },
+  //   posts: {
+  //     relation: Model.HasManyRelation,
+  //     modelClass: __dirname + "/Post",
+  //     join: {
+  //       from: "users.id",
+  //       to: "posts.user_id",
+  //     },
+  //   },
+  //   subscribes: {
+  //     relation: Model.HasManyRelation,
+  //     modelClass: __dirname + "/Subscription",
+  //     join: {
+  //       from: "users.id",
+  //       to: "subscriptions.user_id"
+  //     }
+  //   },
+  //   subscribe: {
+  //     relation: Model.HasOneRelation,
+  //     modelClass: __dirname + "/Subscription",
+  //     join: {
+  //       from: "users.id",
+  //       to: "subscriptions.user_id"
+  //     },
+  //     filter(builder: any) {
+  //       builder.where("subscriptions.ended_at", ">", "now()").first()
+  //     },
+  //   }
+  // };
 
   get profileUrl() {
     return getImage(this.profile);

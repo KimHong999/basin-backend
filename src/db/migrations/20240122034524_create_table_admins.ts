@@ -12,7 +12,6 @@ export async function up(knex: Knex): Promise<void> {
     table.dateTime("updated_at").defaultTo(knex.fn.now());
     table.bigInteger("role_id");
     table.dateTime("deleted_at");
-
     table.foreign("role_id").references("roles.id").onDelete("CASCADE");
   });
 }

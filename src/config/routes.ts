@@ -4,9 +4,8 @@ import expressip from "express-ip";
 import * as Sentry from "@sentry/node";
 //@ts-ignore
 import params from "strong-params";
-import { routes } from "../routes/api/clients";
+import routes from "../routes/api/";
 import { MulterFileExtension } from "../app/helper/errors";
-import { adminRoutes } from "~/routes/api/admins";
 import i18n from "~/config/i18n";
 
 require("express-async-errors");
@@ -44,8 +43,7 @@ export default (app: Express) => {
   app.get("/", (_req: Request, res: Response) => {
     res.status(200).json({ message: `Knock Knock, I'm home` });
   });
-  app.use("/api/v1", routes);
-  app.use("/api/v1/admins", adminRoutes);
+  app.use("/", routes);
   app.use((req: Request, res: Response) => {
     return res.status(404).json({ message: `Route ${req.url} Not found.` });
   });
